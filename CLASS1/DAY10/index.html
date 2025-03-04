@@ -5,25 +5,30 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>DAY 8</title>
+		<title>CLASS 1 DAY 10</title>
 		<style>
 			body {
 				margin: 30px;
 			}
+
 			* {
 				font-family: 'Roboto', sans-serif;
 			}
+
 			p,
 			li {
 				font-size: 18px;
 			}
+
 			.container {
 				display: flex;
 				gap: 15px;
 			}
+
 			.container.flex-col {
 				flex-direction: column;
 			}
+
 			.dropzone {
 				text-align: center;
 				display: flex;
@@ -35,6 +40,7 @@
 				border-radius: 10px;
 				transition: transform 0.5s;
 			}
+
 			.dropzone.dragover {
 				transform: scale(0.9);
 			}
@@ -53,10 +59,12 @@
 				user-select: none;
 				font-size: 22px;
 			}
+
 			.box[data-item='A'] {
 				background-color: #ffdca9;
 				border-color: #f97d02;
 			}
+
 			.box[data-item='B'] {
 				background-color: #bcf8b9;
 				border-color: #3cb43c;
@@ -68,9 +76,11 @@
 				height: 250px;
 				transition: background-color 0.5s;
 			}
+
 			.drop-target {
 				background-color: #bcf8b9;
 			}
+
 			.draggable {
 				display: inline-flex;
 				align-items: center;
@@ -84,12 +94,14 @@
 				margin-bottom: 10px;
 				touch-action: none;
 			}
+
 			/* .draggable.can-drop {
 				background-color: #67d967;
 			} */
 			.w-40 {
 				width: 40%;
 			}
+
 			.highlight {
 				font-weight: 800;
 			}
@@ -99,6 +111,7 @@
 		<!-- Part 3 -->
 		<script src="https://unpkg.com/interactjs/dist/interact.min.js"></script>
 	</head>
+
 	<body>
 		<h1>Drag &amp; Drop</h1>
 
@@ -109,33 +122,27 @@
 
 		<!-- Part 2 -->
 		<h3>
-			Câu 19: Hãy sắp xếp các tiếng sau để tạo thành câu giới thiệu hoàn chỉnh.
+			Câu 21: Hãy sắp xếp các tiếng sau để tạo thành câu giới thiệu hoàn chỉnh.
 		</h3>
 		<div class="container">
-			<div draggable="true" class="dropzone box" data-item="A">Nam</div>
-			<div draggable="true" class="dropzone box" data-item="B">Bộ.</div>
-			<div draggable="true" class="dropzone box" data-item="B">là</div>
-			<div draggable="true" class="dropzone box" data-item="B">ở</div>
-			<div draggable="true" class="dropzone box" data-item="B">nghệ</div>
-			<div draggable="true" class="dropzone box" data-item="B">Cải</div>
-			<div draggable="true" class="dropzone box" data-item="C">loại</div>
-			<div draggable="true" class="dropzone box" data-item="C">hình</div>
-			<div draggable="true" class="dropzone box" data-item="C">thuật</div>
-			<div draggable="true" class="dropzone box" data-item="C">lương</div>
+			<div draggable="true" class="dropzone box" data-item="A">ǎn</div>
+			<div draggable="true" class="dropzone box" data-item="B">vườn.</div>
+			<div draggable="true" class="dropzone box" data-item="B">trong</div>
+			<div draggable="true" class="dropzone box" data-item="B">Đàn gà</div>
+			<div draggable="true" class="dropzone box" data-item="B">khu</div>
+			<div draggable="true" class="dropzone box" data-item="B">kiếm</div>
 		</div>
-		<h3>Câu 20: Hãy sắp xếp các chữ sau để tạo thành từ chỉ phẩm chất.</h3>
+		<h3>Câu 22: Hãy sắp xếp các chữ sau để tạo thành từ.</h3>
 		<div class="container w-40">
-			<div draggable="true" class="dropzone box" data-item="A">c</div>
+			<div draggable="true" class="dropzone box" data-item="A">t</div>
+			<div draggable="true" class="dropzone box" data-item="B">g</div>
 			<div draggable="true" class="dropzone box" data-item="B">T</div>
-			<div draggable="true" class="dropzone box" data-item="B">t</div>
-			<div draggable="true" class="dropzone box" data-item="B">gt</div>
-			<div draggable="true" class="dropzone box" data-item="B">r</div>
-			<div draggable="true" class="dropzone box" data-item="B">h</div>
-			<div draggable="true" class="dropzone box" data-item="C">ư</div>
+			<div draggable="true" class="dropzone box" data-item="B">b</div>
+			<div draggable="true" class="dropzone box" data-item="B">ụ</div>
+			<div draggable="true" class="dropzone box" data-item="B">ố</div>
 			<div draggable="true" class="dropzone box" data-item="C">n</div>
-			<div draggable="true" class="dropzone box" data-item="C">u</div>
 		</div>
-		<h3>
+		<!-- <h3>
 			Câu 21: Hãy sắp xếp các câu sau theo trình tự hợp lí để tạo thành đoạn văn
 			viết về hoạt động tổng vệ sinh khu dân cư.
 		</h3>
@@ -173,77 +180,70 @@
 					một cành đào thật xinh để đón Tết.
 				</p>
 			</div>
-		</div>
+		</div> -->
 
-		<h3>Câu 22: Hãy xếp các cặp từ sau vào nhóm thích hợp.</h3>
+		<h3>Câu 23: Hãy xếp các cặp từ sau vào nhóm thích hợp.</h3>
 		<!-- Part 3 -->
-		<div class="draggable itemA">nỗ lực - cố gắng</div>
-		<div class="draggable itemA">tin tưởng - nghi ngờ</div>
-		<div class="draggable itemA">thận trọng - liều lĩnh</div>
-		<div class="draggable itemA">tiết kiệm - dành dụm</div>
-		<div class="draggable itemB">khéo léo - vụng về</div>
-		<div class="draggable itemB">bình tĩnh - nóng nảy</div>
-		<div class="draggable itemB">mải mê - miệt mài</div>
-		<div class="draggable itemA">kĩ càng – tỉ mỉ</div>
-
-		<div class="container">
-			<div id="dropzoneA" class="interact dropzone">Cặp từ đồng nghĩa</div>
-			<div id="dropzoneB" class="interact dropzone">Cặp từ trái nghĩa</div>
-		</div>
-		<h3>Câu 23: Hãy xếp các câu sau vào nhóm thích hợp.</h3>
-		<!-- Part 3 -->
-		<div class="draggable itemB">
-			TIẾNG LIỆT Mẹ đi chợ về, mua cho bé nhiều loại&nbsp;<span
-				class="highlight"
-				>quả</span
-			>&nbsp;ngon.
-		</div>
-		<div class="draggable itemB">
-			Đồng cỏ xanh mướt, trải rộng đến tận Cuối tuần vừa rồi, em cùng bà ngoại
-			làm&nbsp;<span class="highlight">bánh</span>&nbsp;kem.
-		</div>
-
-		<div class="draggable itemA">
-			Các chú thợ đang&nbsp;<span class="highlight">chạy</span>&nbsp;máy phát
-			điện.
-		</div>
-		<div class="draggable itemA">
-			Hà mở tung&nbsp;<span class="highlight">cánh</span>&nbsp;cửa sổ để đón
-			nắng vào nhà.
-		</div>
-
-		<div class="draggable itemA">
-			Mẹ đặt một bình hoa rất đẹp trên&nbsp;<span class="highlight">mặt</span
-			>&nbsp;bàn ở phòng khách.
-		</div>
-		<div class="draggable itemB">
-			Chúng em&nbsp;<span class="highlight">đứng</span>&nbsp;xếp hàng để vào
-			thăm lăng Bác.
-		</div>
+		<div class="draggable itemB">tập vở</div>
+		<div class="draggable itemC">cặp da</div>
+		<div class="draggable itemC">gặp gỡ</div>
+		<div class="draggable itemB">ngập lụt</div>
+		<div class="draggable itemA">đáp án</div>
+		<div class="draggable itemC">bắp ngô</div>
+		<div class="draggable itemA">xe đạp</div>
+		<div class="draggable itemB">cá mập</div>
+		<div class="draggable itemA">múa sạp</div>
 		<div class="container">
 			<div id="dropzoneA" class="interact dropzone">
-				<h5>Câu có từ in đậm mang nghĩa chuyển</h5>
+				Từ ngữ chứa tiếng có vần "ap"
 			</div>
 			<div id="dropzoneB" class="interact dropzone">
-				<h5>Câu có từ in đậm mang nghĩa gốc</h5>
+				Từ ngữ chứa tiếng có vần "âp"
+			</div>
+			<div id="dropzoneC" class="interact dropzone">
+				Từ ngữ chứa tiếng có vần "ăp"
+			</div>
+		</div>
+		<h3>Câu 24: Hãy xếp các câu sau vào nhóm thích hợp.</h3>
+		<!-- Part 3 -->
+		<div class="draggable itemB">đen sì</div>
+		<div class="draggable itemB">đỏ thắm</div>
+		<div class="draggable itemC">trốn tìm</div>
+		<div class="draggable itemA">ca sĩ</div>
+		<div class="draggable itemB">tím biếc</div>
+		<div class="draggable itemC">bắn bi</div>
+		<div class="draggable itemB">vàng rực</div>
+		<div class="draggable itemA">dược sĩ</div>
+		<div class="draggable itemA">kĩ sư</div>
+		<div class="draggable itemC">bịt mắt bắt dê</div>
+
+		<div class="container">
+			<div id="dropzoneA" class="interact dropzone">
+				<h5>Từ ngữ chỉ nghề nghiệp</h5>
+			</div>
+			<div id="dropzoneB" class="interact dropzone">
+				<h5>Từ ngữ chỉ màu sắc</h5>
+			</div>
+			<div id="dropzoneC" class="interact dropzone">
+				<h5>Từ ngữ chỉ trò chơi</h5>
 			</div>
 		</div>
 
-		<h3>Câu 24: Hãy xếp các thành ngữ, tục ngữ sau vào nhóm thích hợp.</h3>
+		<h3>Câu 25: Hãy xếp các từ ngữ vào nhóm thích hợp.</h3>
 		<!-- Part 3 -->
-		<div class="draggable itemA">Uống nước nhớ nguồn</div>
-		<div class="draggable itemA">Lá rụng về cội</div>
-
-		<div class="draggable itemA">Ăn quả nhớ kẻ trồng cây</div>
-		<div class="draggable itemA">Tôn sư trọng đạo</div>
-		<div class="draggable itemB">Đói cho sạch, rách cho thơm</div>
-		<div class="draggable itemB">Giấy rách phải giữ lấy lề</div>
+		<div class="draggable itemB">hộp xữa</div>
+		<div class="draggable itemB">xáng sớm</div>
+		<div class="draggable itemA">dòng sông</div>
+		<div class="draggable itemA">búp sen</div>
+		<div class="draggable itemA">nhận xét</div>
+		<div class="draggable itemB">con xóc</div>
+		<div class="draggable itemA">siêng năng</div>
 		<div class="container">
 			<div id="dropzoneA" class="interact dropzone">
-				<h5>Thành ngữ, tục ngữ nói về lòng biết ơn</h5>
+				<h5>Từ ngữ viết đúng chính tả</h5>
 			</div>
 			<div id="dropzoneB" class="interact dropzone">
-				<h5>Thành ngữ, tục ngữ nói về lòng tự trọng</h5>
+				<h5>Từ ngữ viết sai chính tả</h5>
 			</div>
 		</div>
 	</body>
