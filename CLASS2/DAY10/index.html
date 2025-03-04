@@ -1,0 +1,265 @@
+<!-- AZUL CODING --------------------------------------- -->
+<!-- JavaScript - Drag & Drop Files & Elements -->
+<!-- https://youtu.be/lSCLnWoa6Tw -->
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>CLASS 2 DAY 10</title>
+		<style>
+			body {
+				margin: 30px;
+			}
+
+			* {
+				font-family: 'Roboto', sans-serif;
+			}
+
+			p,
+			li {
+				font-size: 18px;
+			}
+
+			.container {
+				display: flex;
+				gap: 15px;
+			}
+
+			.container.flex-col {
+				flex-direction: column;
+			}
+
+			.dropzone {
+				text-align: center;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: 34px;
+				border: 2px solid #1576c1;
+				background-color: #94dbfd;
+				border-radius: 10px;
+				transition: transform 0.5s;
+			}
+
+			.dropzone.dragover {
+				transform: scale(0.9);
+			}
+
+			/* Part 1 */
+			#file-dropzone {
+				width: 400px;
+				height: 200px;
+			}
+
+			/* Part 2 */
+			.box {
+				width: 100%;
+				height: 60px;
+				cursor: move;
+				user-select: none;
+				font-size: 22px;
+			}
+
+			.box[data-item='A'] {
+				background-color: #ffdca9;
+				border-color: #f97d02;
+			}
+
+			.box[data-item='B'] {
+				background-color: #bcf8b9;
+				border-color: #3cb43c;
+			}
+
+			/* Part 3 */
+			.interact.dropzone {
+				width: 100%;
+				height: 250px;
+				transition: background-color 0.5s;
+			}
+
+			.drop-target {
+				background-color: #bcf8b9;
+			}
+
+			.draggable {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				padding: 0 6px;
+				font-size: 22px;
+				border: 2px solid #1576c1;
+				background-color: #94dbfd;
+				border-radius: 10px;
+				height: 50px;
+				margin-bottom: 10px;
+				touch-action: none;
+			}
+
+			/* .draggable.can-drop {
+				background-color: #67d967;
+			} */
+			.w-40 {
+				width: 40%;
+			}
+
+			.highlight {
+				font-weight: 800;
+			}
+		</style>
+		<script src="script.js"></script>
+
+		<!-- Part 3 -->
+		<script src="https://unpkg.com/interactjs/dist/interact.min.js"></script>
+	</head>
+
+	<body>
+		<h1>Drag &amp; Drop</h1>
+
+		<!-- Part 1 -->
+		<div id="file-dropzone" class="dropzone">Drop files here</div>
+		<p>Selected files:</p>
+		<ul id="output"></ul>
+
+		<!-- Part 2 -->
+
+		<!-- <h3>
+			Câu 21: Hãy sắp xếp các câu sau theo trình tự hợp lí để tạo thành đoạn văn
+			viết về hoạt động tổng vệ sinh khu dân cư.
+		</h3>
+		<div class="container flex-col">
+			<div draggable="true" class="dropzone box" data-item="A">
+				<p>
+					Năm nào cũng vậy, em rất thích được cùng bố mẹ đi chợ hoa vào dịp Tết.
+				</p>
+			</div>
+			<div draggable="true" class="dropzone box" data-item="B">
+				<p>Bước vào trong, không gian ngập tràn sắc hoa rực rỡ của mùa xuân.</p>
+			</div>
+			<div draggable="true" class="dropzone box" data-item="B">
+				<p>
+					Khu bên này bán quất, bên kia là những cành đào hồng thắm, những cành
+					mai vàng rực, rồi còn có cả hoa lay ơn, hoa thược dược, hoa tuy líp,
+					lan hồ điệp,..
+				</p>
+			</div>
+			<div draggable="true" class="dropzone box" data-item="B">
+				<p>
+					Mới gần đến chợ nhưng em đã cảm nhận được không khí đông vui, nhộn
+					nhịp.
+				</p>
+			</div>
+			<div draggable="true" class="dropzone box" data-item="B">
+				<p>
+					Đến nơi, ai nấy đều trầm trồ khi thấy cổng chợ được kết bằng hoa với
+					dòng chữ "Chúc mừng năm mới".
+				</p>
+			</div>
+			<div draggable="true" class="dropzone box" data-item="B">
+				<p>
+					Đi một vòng ngắm nghía, gia đình em đã chọn được một cây quất nhỏ và
+					một cành đào thật xinh để đón Tết.
+				</p>
+			</div>
+		</div> -->
+
+		<h3>Câu 20: Xếp các từ ngữ sau vào nhóm thích hợp.</h3>
+		<!-- Part 3 -->
+		<div class="draggable itemB">máy tính</div>
+		<div class="draggable itemA">hấp dẫn</div>
+		<div class="draggable itemA">bổ ích</div>
+		<div class="draggable itemB">bức tranh</div>
+		<div class="draggable itemB">quyển sách</div>
+		<div class="draggable itemC">đọc sách</div>
+		<div class="draggable itemC">nghe nhạc</div>
+		<div class="draggable itemA">thú vị</div>
+		<div class="draggable itemC">xem phim</div>
+
+		<div class="container">
+			<div id="dropzoneA" class="interact dropzone">Từ ngữ chỉ đặc điểm</div>
+			<div id="dropzoneB" class="interact dropzone">Từ ngữ chỉ sự vật</div>
+			<div id="dropzoneC" class="interact dropzone">Từ ngữ chỉ hoạt động</div>
+		</div>
+		<h3>Câu 21: Hãy xếp các câu sau vào nhóm thích hợp.</h3>
+		<h3>(Lưu ý: Với các từ ngữ không thuộc nhóm nào, em không xếp.)</h3>
+		<!-- Part 3 -->
+
+		<div class="draggable itemB">nhà máy</div>
+		<div class="draggable itemc">giấy bút</div>
+		<div class="draggable itemC">cọ vẽ</div>
+		<div class="draggable itemA">biên tập viên</div>
+		<div class="draggable itemB">đài truyền hình</div>
+		<div class="draggable itemC">máy quay</div>
+		<div class="draggable itemA">hoạ sĩ</div>
+		<div class="draggable itemB">bệnh viện</div>
+		<div class="draggable itemA">phóng viên</div>
+		<div class="draggable">dẻo dai</div>
+		<div class="draggable itemC">say sưa</div>
+
+		<div class="container">
+			<div id="dropzoneA" class="interact dropzone">
+				<h5>Từ ngữ chỉ người làm việc</h5>
+			</div>
+			<div id="dropzoneB" class="interact dropzone">
+				<h5>Từ ngữ chỉ địa điểm làm việc</h5>
+			</div>
+			<div id="dropzoneC" class="interact dropzone">
+				<h5>Từ ngữ chỉ dụng cụ làm việc</h5>
+			</div>
+		</div>
+
+		<h3>Câu 22: Hãy xếp các từ ngữ vào nhóm thích hợp.</h3>
+		<!-- Part 3 -->
+		<div class="draggable itemC">Mọi người đến dâng hương ở đền Hùng.</div>
+		<div class="draggable itemB">
+			Bưởi Đoan Hùng là đặc sản của tỉnh Phú Thọ.
+		</div>
+		<div class="draggable itemA">
+			Món bánh tại Phú Thọ vừa dẻo ngọt vừa béo ngậy.
+		</div>
+		<div class="draggable itemA">
+			Lễ hội đền Hùng vô cùng đông vui, tấp nập.
+		</div>
+		<div class="draggable itemC">
+			Cô Lam đang xay bột để làm món bánh tẻ mật.
+		</div>
+		<div class="draggable itemB">
+			Hát xoan là loại hình nghệ thuật đặc sắc ở tỉnh Phú Thọ.
+		</div>
+
+		<div class="container">
+			<div id="dropzoneA" class="interact dropzone">
+				<h5>Câu nêu đặc điểm</h5>
+			</div>
+			<div id="dropzoneB" class="interact dropzone">
+				<h5>Câu giới thiệu</h5>
+			</div>
+			<div id="dropzoneC" class="interact dropzone">
+				<h5>Câu nêu hoạt động</h5>
+			</div>
+		</div>
+
+		<h3>Câu 23: Hãy sắp xếp các chữ sau để tạo thành từ chỉ nghề nghiệp.</h3>
+		<div class="container w-40">
+			<div draggable="true" class="dropzone box" data-item="A">d</div>
+			<div draggable="true" class="dropzone box" data-item="B">ạ</div>
+			<div draggable="true" class="dropzone box" data-item="B">i</div>
+			<div draggable="true" class="dropzone box" data-item="B">ễ</div>
+			<div draggable="true" class="dropzone box" data-item="B">n</div>
+			<div draggable="true" class="dropzone box" data-item="B">Đ</div>
+			<div draggable="true" class="dropzone box" data-item="C">o</div>
+		</div>
+		<h3>
+			Câu 24: Hãy sắp xếp các tiếng sau để tạo thành câu giới thiệu hoàn chỉnh.
+		</h3>
+		<div class="container">
+			<div draggable="true" class="dropzone box" data-item="A">lã.</div>
+			<div draggable="true" class="dropzone box" data-item="B">nước</div>
+			<div draggable="true" class="dropzone box" data-item="B">ao</div>
+			<div draggable="true" class="dropzone box" data-item="B">đào</div>
+			<div draggable="true" class="dropzone box" data-item="B">hơn</div>
+			<div draggable="true" class="dropzone box" data-item="B">Một</div>
+			<div draggable="true" class="dropzone box" data-item="B">máu</div>
+			<div draggable="true" class="dropzone box" data-item="B">giọt</div>
+		</div>
+	</body>
+</html>
