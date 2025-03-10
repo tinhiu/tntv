@@ -1,0 +1,293 @@
+<!-- AZUL CODING --------------------------------------- -->
+<!-- JavaScript - Drag & Drop Files & Elements -->
+<!-- https://youtu.be/lSCLnWoa6Tw -->
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>DAY 7</title>
+		<style>
+			body {
+				margin: 30px;
+			}
+			* {
+				font-family: 'Roboto', sans-serif;
+			}
+			p,
+			li {
+				font-size: 18px;
+			}
+			.container {
+				display: flex;
+				gap: 15px;
+			}
+			.container.flex-col {
+				flex-direction: column;
+			}
+			.dropzone {
+				text-align: center;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: 34px;
+				border: 2px solid #1576c1;
+				background-color: #94dbfd;
+				border-radius: 10px;
+				transition: transform 0.5s;
+			}
+			.dropzone.dragover {
+				transform: scale(0.9);
+			}
+
+			/* Part 1 */
+			#file-dropzone {
+				width: 400px;
+				height: 200px;
+			}
+
+			/* Part 2 */
+			.box {
+				width: 100%;
+				height: 60px;
+				cursor: move;
+				user-select: none;
+				font-size: 22px;
+			}
+			.box[data-item='A'] {
+				background-color: #ffdca9;
+				border-color: #f97d02;
+			}
+			.box[data-item='B'] {
+				background-color: #bcf8b9;
+				border-color: #3cb43c;
+			}
+
+			/* Part 3 */
+			.interact.dropzone {
+				width: 100%;
+				height: 250px;
+				transition: background-color 0.5s;
+			}
+			.drop-target {
+				background-color: #bcf8b9;
+			}
+			.draggable {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				padding: 0 6px;
+				font-size: 22px;
+				border: 2px solid #1576c1;
+				background-color: #94dbfd;
+				border-radius: 10px;
+				height: 50px;
+				margin-bottom: 10px;
+				touch-action: none;
+			}
+			/* .draggable.can-drop {
+				background-color: #67d967;
+			} */
+			.w-40 {
+				width: 40%;
+			}
+			.highlight {
+				font-weight: 800;
+			}
+
+			.wrapper {
+				position: relative;
+			}
+			.wrapper svg {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				z-index: 1;
+				shape-rendering: geometricPrecision; /* for better looking lines */
+			}
+			.wrapper .content {
+				position: relative;
+				z-index: 2;
+				display: flex;
+				justify-content: space-evenly;
+				align-items: center;
+			}
+			.wrapper .hook {
+				background-color: blue;
+				display: inline-block;
+				width: 15px;
+				height: 15px;
+				border-radius: 50%;
+				cursor: pointer;
+			}
+			.wrapper .hook > .delete {
+				position: absolute;
+				left: -3px;
+				top: -3px;
+				width: 21px;
+				height: 21px;
+				background-color: red;
+				color: white;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				border-radius: 50%;
+			}
+			.wrapper .hook:hover {
+				transform: scale(1.1);
+			}
+		</style>
+
+		<!-- Part 3 -->
+		<script src="https://unpkg.com/interactjs/dist/interact.min.js"></script>
+	</head>
+	<body>
+		<h1>Drag &amp; Drop</h1>
+
+		<!-- Part 1 -->
+		<div id="file-dropzone" class="dropzone">Drop files here</div>
+		<p>Selected files:</p>
+		<ul id="output"></ul>
+
+		<!-- Part 2 -->
+		<h3>
+			Câu 19: Hãy sắp xếp các tiếng sau để tạo thành câu tục ngữ hoàn chỉnh.
+		</h3>
+		<div class="container">
+			<div draggable="true" class="dropzone box" data-item="A">không</div>
+			<div draggable="true" class="dropzone box" data-item="B">Cây</div>
+			<div draggable="true" class="dropzone box" data-item="B">ngay</div>
+			<div draggable="true" class="dropzone box" data-item="B">của</div>
+			<div draggable="true" class="dropzone box" data-item="B">đứng.</div>
+			<div draggable="true" class="dropzone box" data-item="B">chết</div>
+			<div draggable="true" class="dropzone box" data-item="C">sợ</div>
+		</div>
+		<h3>Câu 20: Hãy sắp xếp các chữ sau để tạo thành từ chỉ phẩm chất.</h3>
+		<div class="container w-40">
+			<div draggable="true" class="dropzone box" data-item="A">n</div>
+			<div draggable="true" class="dropzone box" data-item="B">Đ</div>
+			<div draggable="true" class="dropzone box" data-item="B">Ô</div>
+			<div draggable="true" class="dropzone box" data-item="B">ư</div>
+			<div draggable="true" class="dropzone box" data-item="B">ơ</div>
+			<div draggable="true" class="dropzone box" data-item="B">g</div>
+			<div draggable="true" class="dropzone box" data-item="C">l</div>
+		</div>
+		<h3>Câu 21: Sắp xếp các câu sau thành câu chuyện hoàn chỉnh.</h3>
+		<div class="container flex-col">
+			<div draggable="true" class="dropzone box" data-item="A">
+				<p>Trên đường tiến quân, voi của Trần Hưng Đạo bị sa xuống bùn lầy.</p>
+			</div>
+			<div draggable="true" class="dropzone box" data-item="B">
+				<p>
+					Vì việc quân cấp bách, Trần Hưng Đạo đành để voi ở lại, voi chảy nước
+					mắt nhìn chủ tướng rời đi.
+				</p>
+			</div>
+			<div draggable="true" class="dropzone box" data-item="B">
+				<p>
+					Về sau, nhân dân địa phương đã tạc tượng đá và lập đền thờ cho chú voi
+					trung hiếu này.
+				</p>
+			</div>
+			<div draggable="true" class="dropzone box" data-item="B">
+				<p>
+					Quân sĩ cùng nhân dân trong vùng tìm đủ mọi cách để cứu voi nhưng
+					không được.
+				</p>
+			</div>
+			<div draggable="true" class="dropzone box" data-item="B">
+				<p>
+					Thương voi tình nghĩa, trước khi đi, Trần Hưng Đạo đã thề rằng nếu
+					không đánh thắng giặc Nguyên thì sẽ không về bến sông này.
+				</p>
+			</div>
+		</div>
+
+		<h3>Câu 22: Hãy xếp các cặp từ sau vào nhóm thích hợp.</h3>
+		<!-- Part 3 -->
+		<div class="draggable itemA">nhà bếp</div>
+		<div class="draggable itemB">khang trang</div>
+		<div class="draggable itemC">bàn ghế</div>
+		<div class="draggable itemB">sạch sẽ</div>
+		<div class="draggable itemC">máy sấy tóc</div>
+		<div class="draggable itemA">sân thượng</div>
+		<div class="draggable itemC">chăn bông</div>
+		<div class="draggable itemA">phòng tắm</div>
+		<div class="draggable itemB">rộng rãi</div>
+		<div class="container">
+			<div id="dropzoneA" class="interact dropzone">
+				Từ ngữ chỉ địa điểm trong nhà
+			</div>
+			<div id="dropzoneB" class="interact dropzone">
+				Từ ngữ chỉ đặc điểm của ngôi nhà
+			</div>
+			<div id="dropzoneB" class="interact dropzone">
+				Từ ngữ chỉ đồ vật trong nhà
+			</div>
+		</div>
+
+		<h3>Câu 23: Hãy xếp các từ ngữ sau vào nhóm thích hợp.</h3>
+		<!-- Part 3 -->
+
+		<div class="draggable itemC">trầm bổng</div>
+		<div class="draggable itemB">gảy đàn</div>
+		<div class="draggable itemA">đàn tranh</div>
+		<div class="draggable itemA">trống cơm</div>
+		<div class="draggable itemB">thổi sáo</div>
+		<div class="draggable itemB">vỗ trống</div>
+		<div class="draggable itemC">réo rắt</div>
+		<div class="draggable itemC">du dương</div>
+		<div class="draggable itemA">sáo trúc</div>
+		<div class="container">
+			<div id="dropzoneA" class="interact dropzone">
+				<h5>Từ ngữ chỉ sự vật</h5>
+			</div>
+			<div id="dropzoneB" class="interact dropzone">
+				<h5>Từ ngữ chỉ hoạt động</h5>
+			</div>
+			<div id="dropzoneC" class="interact dropzone">
+				<h5>Từ ngữ chỉ đặc điểm</h5>
+			</div>
+		</div>
+
+		<h3>Câu 24: Hãy xếp các câu sau vào nhóm thích hợp.</h3>
+		<!-- Part 3 -->
+		<div class="draggable itemB">
+			Xuân sang,&nbsp;<span class="highlight">hoa</span>&nbsp;mai khoe sắc vàng
+			rực rỡ.
+		</div>
+		<div class="draggable itemA">
+			Đồng cỏ xanh mướt, trải rộng đến tận&nbsp;<span class="highlight"
+				>chân</span
+			>&nbsp;trời.
+		</div>
+
+		<div class="draggable itemA">
+			Những cánh buồm&nbsp;<span class="highlight">no</span>&nbsp;gió đẩy thuyền
+			lướt đi trên mặt biển.
+		</div>
+		<div class="draggable itemB">
+			Những chiếc&nbsp;<span class="highlight">lá</span>&nbsp;khẽ đung đưa trong
+			làn gió mát.
+		</div>
+		<div class="draggable itemA">
+			Sáng sớm, giọt sương đọng trên lá như&nbsp;<span class="highlight"
+				>hạt</span
+			>&nbsp; ngọc lấp lánh.
+		</div>
+		<div class="draggable itemB">
+			Đàn hải âu sải&nbsp;<span class="highlight">cánh</span>&nbsp;chao liệng
+			trên mặt biển.
+		</div>
+		<div class="container">
+			<div id="dropzoneA" class="interact dropzone">
+				<h5>Câu có từ in đậm mang nghĩa chuyển</h5>
+			</div>
+			<div id="dropzoneB" class="interact dropzone">
+				<h5>Câu có từ in đậm mang nghĩa gốc</h5>
+			</div>
+		</div>
+	</body>
+	<script src="script.js"></script>
+</html>
