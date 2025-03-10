@@ -1,0 +1,247 @@
+<!-- AZUL CODING --------------------------------------- -->
+<!-- JavaScript - Drag & Drop Files & Elements -->
+<!-- https://youtu.be/lSCLnWoa6Tw -->
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>DAY 9</title>
+		<style>
+			body {
+				margin: 30px;
+			}
+			* {
+				font-family: 'Roboto', sans-serif;
+			}
+			p,
+			li {
+				font-size: 18px;
+			}
+			.container {
+				display: flex;
+				gap: 15px;
+			}
+			.container.flex-col {
+				flex-direction: column;
+			}
+			.dropzone {
+				text-align: center;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				font-size: 34px;
+				border: 2px solid #1576c1;
+				background-color: #94dbfd;
+				border-radius: 10px;
+				transition: transform 0.5s;
+			}
+			.dropzone.dragover {
+				transform: scale(0.9);
+			}
+
+			/* Part 1 */
+			#file-dropzone {
+				width: 400px;
+				height: 200px;
+			}
+
+			/* Part 2 */
+			.box {
+				width: 100%;
+				height: 60px;
+				cursor: move;
+				user-select: none;
+				font-size: 22px;
+			}
+			.box[data-item='A'] {
+				background-color: #ffdca9;
+				border-color: #f97d02;
+			}
+			.box[data-item='B'] {
+				background-color: #bcf8b9;
+				border-color: #3cb43c;
+			}
+
+			/* Part 3 */
+			.interact.dropzone {
+				width: 100%;
+				height: 250px;
+				transition: background-color 0.5s;
+			}
+			.drop-target {
+				background-color: #bcf8b9;
+			}
+			.draggable {
+				display: inline-flex;
+				align-items: center;
+				justify-content: center;
+				padding: 0 6px;
+				font-size: 22px;
+				border: 2px solid #1576c1;
+				background-color: #94dbfd;
+				border-radius: 10px;
+				height: 50px;
+				margin-bottom: 10px;
+				touch-action: none;
+			}
+			/* .draggable.can-drop {
+				background-color: #67d967;
+			} */
+			.w-40 {
+				width: 40%;
+			}
+			.highlight {
+				font-weight: 800;
+			}
+		</style>
+		<script src="script.js"></script>
+
+		<!-- Part 3 -->
+		<script src="https://unpkg.com/interactjs/dist/interact.min.js"></script>
+	</head>
+	<body>
+		<h1>Drag &amp; Drop</h1>
+
+		<!-- Part 1 -->
+		<div id="file-dropzone" class="dropzone">Drop files here</div>
+		<p>Selected files:</p>
+		<ul id="output"></ul>
+
+		<!-- Part 2 -->
+		<h3>
+			Câu 19: Hãy sắp xếp các tiếng sau để tạo thành câu giới thiệu hoàn chỉnh.
+		</h3>
+		<div class="container">
+			<div draggable="true" class="dropzone box" data-item="A">hể.</div>
+			<div draggable="true" class="dropzone box" data-item="B">văn</div>
+			<div draggable="true" class="dropzone box" data-item="B">phi</div>
+			<div draggable="true" class="dropzone box" data-item="B">hoá</div>
+			<div draggable="true" class="dropzone box" data-item="B">vật</div>
+			<div draggable="true" class="dropzone box" data-item="B">là</div>
+			<div draggable="true" class="dropzone box" data-item="C">sản</div>
+			<div draggable="true" class="dropzone box" data-item="C">Gióng</div>
+			<div draggable="true" class="dropzone box" data-item="C">Di</div>
+			<div draggable="true" class="dropzone box" data-item="C">Hội</div>
+		</div>
+		<h3>Câu 20: Hãy sắp xếp các chữ sau để tạo thành từ chỉ phẩm chất.</h3>
+		<div class="container w-40">
+			<div draggable="true" class="dropzone box" data-item="A">D</div>
+			<div draggable="true" class="dropzone box" data-item="B">u</div>
+			<div draggable="true" class="dropzone box" data-item="B">i</div>
+			<div draggable="true" class="dropzone box" data-item="B">à</div>
+			<div draggable="true" class="dropzone box" data-item="B">g</div>
+			<div draggable="true" class="dropzone box" data-item="B">d</div>
+			<div draggable="true" class="dropzone box" data-item="C">n</div>
+		</div>
+		<h3>
+			Câu 21: Hãy sắp xếp các câu sau theo trình tự hợp lí để tạo thành đoạn văn
+			viết về hoạt động tổng vệ sinh khu dân cư.
+		</h3>
+		<div class="container flex-col">
+			<div draggable="true" class="dropzone box" data-item="A">
+				<p>
+					Từ sáng sớm, mẹ đã đi chợ mua đồ còn em và bố dọn dẹp nhà cửa, treo
+					câu đối và trang trí cây đào trước hiên.
+				</p>
+			</div>
+			<div draggable="true" class="dropzone box" data-item="B">
+				<p>Mẹ về, cả nhà em cùng chuẩn bị mâm cơm tất niên.</p>
+			</div>
+			<div draggable="true" class="dropzone box" data-item="B">
+				<p>
+					Buổi chiều, mẹ đun một nồi nước mùi già để hương thơm lan toả khắp
+					ngôi nhà.
+				</p>
+			</div>
+			<div draggable="true" class="dropzone box" data-item="B">
+				<p>
+					Tối đến, gia đình em quây quần bên nhau, vừa xem chương trình "Gặp
+					nhau cuối năm" vừa chuyện trò vui vẻ.
+				</p>
+			</div>
+			<div draggable="true" class="dropzone box" data-item="B">
+				<p>
+					Đúng 12 giờ đêm, tiếng pháo hoa rộn rã báo hiệu thời khắc giao thừa đã
+					điểm, một năm mới đã sang.
+				</p>
+			</div>
+			<div draggable="true" class="dropzone box" data-item="B">
+				<p>
+					Hôm nay là ngày cuối cùng của năm cũ, mọi người đều tất bật chuẩn bị
+					để đón chào năm mới.
+				</p>
+			</div>
+		</div>
+
+		<h3>Câu 22: Hãy xếp các cặp từ sau vào nhóm thích hợp.</h3>
+		<!-- Part 3 -->
+		<div class="draggable itemA">quyết đoán - do dự</div>
+		<div class="draggable itemA">hấp dẫn - cuốn hút</div>
+		<div class="draggable itemA">gọn gàng - ngăn nắp</div>
+		<div class="draggable itemA">cảnh giác - lơ là</div>
+		<div class="draggable itemB">hi vọng - mong đợi</div>
+		<div class="draggable itemB">thong thả - vội vàng</div>
+		<div class="draggable itemB">cường điệu - phóng đại</div>
+		<div class="draggable itemA">bận bịu - rảnh rỗi</div>
+
+		<div class="container">
+			<div id="dropzoneA" class="interact dropzone">Cặp từ đồng nghĩa</div>
+			<div id="dropzoneB" class="interact dropzone">Cặp từ trái nghĩa</div>
+		</div>
+		<h3>Câu 23: Hãy xếp các câu sau vào nhóm thích hợp.</h3>
+		<!-- Part 3 -->
+		<div class="draggable itemB">
+			Bé Na đang chập chững tập &nbsp;<span class="highlight">đi.</span>
+		</div>
+		<div class="draggable itemB">
+			Gia đình em được &nbsp;<span class="highlight">ăn</span>&nbsp; thử các
+			loại chè cung đình nổi tiếng ở Huế.
+		</div>
+
+		<div class="draggable itemA">
+			Mùa đông, mẹ dặn Hưng quàng thêm khăn để giữ&nbsp;<span class="highlight"
+				>cổ.</span
+			>&nbsp;
+		</div>
+		<div class="draggable itemA">
+			Gia đình em đến thăm &nbsp;<span class="highlight">Mũi</span>&nbsp; Cà Mau
+			vào mùa hè năm trước.
+		</div>
+
+		<div class="draggable itemA">
+			Do sơ ý nên Hà đã làm dính mực vào &nbsp;<span class="highlight">tay</span
+			>&nbsp;áo.
+		</div>
+		<div class="draggable itemB">
+			Mưa lớn nhiều ngày, nước đã tràn qua &nbsp;<span class="highlight"
+				>miệng</span
+			>&nbsp; giếng.
+		</div>
+		<div class="container">
+			<div id="dropzoneA" class="interact dropzone">
+				<h5>Câu có từ in đậm mang nghĩa chuyển</h5>
+			</div>
+			<div id="dropzoneB" class="interact dropzone">
+				<h5>Câu có từ in đậm mang nghĩa gốc</h5>
+			</div>
+		</div>
+
+		<h3>Câu 24: Hãy xếp các thành ngữ, tục ngữ sau vào nhóm thích hợp.</h3>
+		<!-- Part 3 -->
+		<div class="draggable itemA">Danh lam thắng cảnh</div>
+		<div class="draggable itemB">Mây xanh thì nắng, mây trắng thì mưa</div>
+
+		<div class="draggable itemB">Chớp đông nhay nháy, gà gáy thì mưa</div>
+		<div class="draggable itemA">Sơn thuỷ hữu tình</div>
+		<div class="draggable itemB">Ráng mỡ gà, có nhà thì giữ</div>
+		<div class="draggable itemA">Non xanh nước biếc</div>
+		<div class="container">
+			<div id="dropzoneA" class="interact dropzone">
+				<h5>Thành ngữ, tục ngữ nói về vẻ đẹp của thiên nhiên</h5>
+			</div>
+			<div id="dropzoneB" class="interact dropzone">
+				<h5>Thành ngữ, tục ngữ nói về kinh nghiệm dự báo thời tiết</h5>
+			</div>
+		</div>
+	</body>
+</html>
